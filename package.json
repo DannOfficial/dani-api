@@ -28,6 +28,7 @@
     "express-session": "^1.17.2",
     "fs": "^0.0.1-security",
     "jquery": "^3.7.0",
+    "jsdom": "^16.7.0",
     "lodash.debounce": "^4.0.8",
     "lodash.memoize": "^4.1.2",
     "lodash.throttle": "^4.1.1",
