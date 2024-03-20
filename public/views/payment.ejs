@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment - DannTeam</title>
+  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous">
+</head>
+<body class="bg-gray-900 text-white p-4">
+  <div class="max-w-md mx-auto bg-gray-800 p-6 rounded-md shadow-md">
+    <h2 class="text-2xl mb-4">Payment Details</h2>
+    <p>Name: <% if(name === '') { %>
+      null
+    <% } else { %>
+      <%= name %>
+    <% } %></p>
+    <p>Email: <%= email %></p>
+    <p>Selected Plan: <%= plan %></p>
+    <p>Plan Expiration: <%= expired_plan_date %></p>
+    <p><%= price_display %></p>
+<div>
+  <h1 class="text-lg font-semibold mb-1">Payment Methods</h1>
+  <% if(payment_method === 'Dana' || payment_method === 'Gopay') { %>
+    <p class="text-lg mt-1">Nomor: 0895342959060</p>
+  <% } else if(payment_method === 'qris') { %>
+    <img src="https://telegra.ph/file/19f968d68c89c645f5191.jpg" alt="QRIS" style="aspect-ratio: 1/1; width: 300px; height: auto; margin-bottom: 4px;">
+    <a class="text-blue-400 font-semibold" href="https://telegra.ph/file/19f968d68c89c645f5191.jpg" download><i class="fas fa-download"></i> Download</a>
+    <p class="text-lg mt-1">Scan this QR code to make a payment.</p>
+  <% } else { %>
+    <p>Metode pembayaran tidak valid atau belum dipilih.</p>
+  <% } %>
+  </div>
+ </body>
+</html>

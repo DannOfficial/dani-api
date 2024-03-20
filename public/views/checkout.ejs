@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - DannTeam</title>
+  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous">
+</head>
+<body class="bg-gray-900 text-white p-4">
+  <div class="max-w-md mx-auto bg-gray-800 p-6 rounded-md shadow-md">
+    <h2 class="text-2xl mb-4">Order Plan</h2>
+    <form action="/payment" method="get">
+      <div class="mb-4">
+        <label for="plan" class="block mb-2 text-white">Choose a plan:</label>
+        <select id="plan" name="plan" class="w-full p-2 border rounded-lg bg-gray-700 text-white" onchange="updatePrice()" required>
+          <option value="">Please select</option>
+          <option value="Premium">Premium Plan (Rp 15.000/month)</option>
+          <option value="Premium">Premium Plan (Rp 30.000/month)</option>
+          <option value="VIP">VIP Plan (Rp 60.000/month)</option>
+          <option value="Super VIP">Super VIP Plan (Rp 100.000/month)</option>
+        </select>
+      </div>
+      <div id="expired-plan-date" class="mb-4">
+        <label for="expired_plan_date" class="block mb-2 text-white">Plan expiration period:</label>
+        <select id="expired_plan_date" name="expired_plan_date" class="w-full p-2 border rounded-lg bg-gray-700 text-white" onchange="updatePrice()" required>
+          <option value="">Please select</option>
+          <option value="1 Month">1 Month</option>
+          <option value="1 Year">1 Year</option>
+          <option value="Custom">Custom</option>
+        </select>
+      </div>
+      <div id="custom-expired-plan-date" class="mb-4 hidden">
+        <label for="custom_expired_plan_date" class="block mb-2 text-white">Custom expired plan expiration period:</label>
+        <div class="flex items-center mt-2">
+          <input type="number" id="custom_expired_plan_date" name="custom_expired_plan_date" class="w-full p-2 border rounded-lg bg-gray-700 text-white" placeholder="Enter custom expired plan date" min="1" onchange="updatePrice()">
+          <select name="custom_expired_plan_date_unit" class="ml-2 p-2 border rounded-lg bg-gray-700 text-white" onchange="updatePrice()">
+            <option value="">Please select</option>
+            <option value="day">Day</option>
+            <option value="week">Week</option>
+            <option value="month">Month</option>
+            <option value="year">Year</option>
+          </select>
+        </div>
+      </div>
+      <div class="mb-4">
+        <label for="name" class="block mb-2 text-white">Name:</label>
+        <input type="text" id="name" name="name" class="w-full p-2 border rounded-lg bg-gray-700 text-white" placeholder="Enter your name" required>
+      </div>
+      <div class="mb-4">
+        <label for="email" class="block mb-2 text-white">Email address:</label>
+        <input type="email" id="email" name="email" class="w-full p-2 border rounded-lg bg-gray-700 text-white" placeholder="Enter your email" required>
+      </div>
+      <div class="mb-4">
+        <label for="payment_method" class="block mb-2 text-white">Payment method:</label>
+        <select id="payment_method" name="payment_method" class="w-full p-2 border rounded-lg bg-gray-700 text-white" required>
+          <option value="">Please select</option>
+          <option value="QRIS">Qris (All Payment)</option>
+          <option value="DANA">DANA</option>
+          <option value="GoPay">GoPay</option>
+        </select>
+      </div>
+      <div id="price_display" class="mb-4 text-white">Total Price: 0,0</div>
+      <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-500">
+        <i class="fas fa-shopping-cart"></i> Checkout
+      </button>
+    </form>
+  </div>
+  
+  <script>
+        function formatPrice(price) {
+      const formattedPrice = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(price);
+      return formattedPrice;
+    }
+
+    function updatePrice() {
+      const planSelect = document.getElementById('plan');
+      const expiredDateSelect = document.getElementById('expired_plan_date');
+      const priceDisplay = document.getElementById('price_display');
+      const customExpiredPlanDate = document.getElementById('custom-expired-plan-date');
+      const customExpiredDateInput = document.getElementById('custom_expired_plan_date');
+      const customDateUnitSelect = document.querySelector('#custom-expired-plan-date select');
+      const paymentMethod = document.getElementId('payment_method');
+      const name = document.getElementId('name');
+      const email = document.getElementId('email');
+
+      const prices = {
+        'Premium': 15000,
+        'Premium': 30000,
+        'VIP': 60000,
+        'Super VIP': 100000
+      };
+
+      const selectedPlan = planSelect.value;
+      const selectedExpiredDate = expiredDateSelect.value;
+
+      let totalPrice = 0;
+
+      if (selectedPlan) {
+        if (selectedExpiredDate === 'custom') {
+          customExpiredPlanDate.classList.remove('hidden');
+          const customDateValue = parseFloat(customExpiredDateInput.value);
+          const dateUnit = customDateUnitSelect.value;
+          
+          if (!isNaN(customDateValue)) {
+            const price = prices[selectedPlan] || 0;
+
+            switch (dateUnit) {
+              case 'Day':
+                totalPrice = customDateValue * price / 30;
+                break;
+              case 'Week':
+                totalPrice = customDateValue * price / 4;
+                break;
+              case 'Month':
+                totalPrice = customDateValue * price;
+                break;
+              case 'Year':
+                totalPrice = customDateValue * price * 12;
+                break;
+              default:
+                totalPrice = 0;
+                break;
+            }
+          }
+        } else if (selectedExpiredDate) {
+          customExpiredDateInput.value = '';
+          customDateUnitSelect.value = '';
+          customExpiredPlanDate.classList.add('hidden');
+          const price = prices[selectedPlan] || 0;
+          totalPrice = selectedExpiredDate === '1 Years' ? price * 12 : price;
+        } else {
+          totalPrice = 0;
+        }
+      }
+
+      const formattedPrice = formatPrice(totalPrice);
+      priceDisplay.innerText = `Total Price: ${formattedPrice}`;
+    }
+  </script>
+  
+</body>
+</html>

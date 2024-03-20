@@ -1,0 +1,257 @@
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #ffff;
+  margin: 0;
+  padding: 0;
+  color: #000000;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2F4F4F;
+  color: #ffffff;
+  padding: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar ul li {
+  margin-right: 10px;
+}
+
+.navbar ul li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.dark-mode-icon {
+  font-size: 18px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+h2 {
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+.dark-mode table {
+  border: 1px solid #ffffff;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  border: 1px solid #000000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+table th,
+table td {
+  border: 1px solid #000000;
+  text-align: center;
+  padding: 10px;
+}
+
+table th {
+  background-color: #ffffff;
+  font-weight: bold;
+  color: #000000;
+  /* Warna teks pada mode terang */
+}
+
+.dark-mode table th {
+  background-color: #1F1F1F;
+  color: #ffffff;
+  /* Warna teks pada mode gelap */
+}
+
+.form-container {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+  text-align: center;
+}
+
+.form-container h2 {
+  color: #000000;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"],
+.form-container input[type="number"],
+.form-container textarea,
+.form-container select,
+.form-container #searchInput {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #dddddd;
+  outline: none;
+}
+
+.form-container button[type="submit"] {
+  background-color: #2F4F4F;
+  color: #ffffff;
+  padding: 10px 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-container button[type="submit"]:hover {
+  background-color: #1F3F3F;
+}
+
+.form-container i {
+  margin-right: 5px;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 40px;
+  color: #888888;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+.footer i {
+  margin-right: 5px;
+}
+
+.dark-mode {
+  background-color: #1F1F1F;
+  color: #ffffff;
+}
+
+.dark-mode .navbar {
+  background-color: #2F4F4F;
+}
+
+.dark-mode .navbar ul li a {
+  color: #ffffff;
+}
+
+.dark-mode .footer {
+  color: #cccccc;
+}
+
+.action-button {
+  background-color: #2F4F4F;
+  color: #ffffff;
+  padding: 10px 16px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  margin-top: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  margin: 0 auto;
+}
+
+.action-button i {
+  margin-right: 5px;
+}
+
+.action-button:hover {
+  background-color: #1F3F3F;
+}
+
+/* Mode gelap */
+body.dark-mode {
+  background-color: #1F1F1F;
+  color: #ffffff;
+}
+
+body.dark-mode .container {
+  background-color: #1F1F1F;
+}
+
+body.dark-mode h2 {
+  color: #ffffff;
+}
+
+body.dark-mode table th {
+  background-color: #1F1F1F;
+  color: #ffffff;
+}
+
+body.dark-mode .form-container {
+  background-color: #1F1F1F;
+}
+
+body.dark-mode .form-container h2 {
+  color: #ffffff;
+}
+
+body.dark-mode form input {
+  background-color: #1F1F1F;
+  color: #ffffff;
+}
+
+body.dark-mode .form-container input[type="text"],
+body.dark-mode .form-container input[type="email"],
+body.dark-mode .form-container input[type="password"],
+body.dark-mode .form-container input[type="number"],
+body.dark-mode .form-container textarea,
+body.dark-mode .form-container select,
+body.dark-mode #searchInput {
+  background-color: #1F1F1F;
+  color: #ffffff;
+}
+
+body.dark-mode .form-container button[type="submit"] {
+  background-color: #1F3F3F;
+  color: #ffffff;
+}
+
+body.dark-mode .footer {
+  background-color: #1F1F1F;
+  color: #cccccc;
+}

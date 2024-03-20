@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign In - <%= global.web_settings.head.title %></title>
+  <link rel="shortcut icon" type="image/png" href="<%= global.web_settings.head.favicon %>">
+  <meta name="description" content="<%= global.web_settings.head.description %>">
+  <meta name="author" content="<%= global.web_settings.head.author %>">
+  <meta name="keywords" content="<%= global.web_settings.head.keywords %>">
+  <meta property="og:site_name" content="<%= global.web_settings.head.site_name %>">
+  <meta property="og:title" content="<%= global.web_settings.head.title %>">
+  <meta property="og:url" content="<%= global.web_settings.head.domain %>">
+  <meta property="og:image" content="<%= global.web_settings.head.image %>">
+  <meta property="og:image:type" content="<%= global.web_settings.head.image_type %>">
+  <meta property="og:image:width" content="<%= global.web_settings.head.image_width %>">
+  <meta property="og:image:height" content="<%= global.web_settings.head.image_height %>">
+  <meta property="og:image:alt" content="<%= global.web_settings.head.image_alt %>">
+  <meta property="og:description" content="<%= global.web_settings.head.description %>">
+  <link rel="stylesheet" href="../assets/css/auth-login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body>
+  <div class="content">
+    <div class="text">
+      Sign in
+    </div>
+    <form action="/login" method="POST">
+      <div class="field">
+        <input type="text" name="username" placeholder="Username" required>
+        <span class="fas fa-user"></span>
+        <!--<label>Username</label>-->
+      </div>
+      <div class="field">
+        <input type="password" name="password" placeholder="Password" required>
+        <span class="fas fa-lock"></span>
+        <!--<label>Password</label>-->
+      </div>
+      <div class="forgot-pass">
+        <a href="/forgot-password">Forgot Password?</a>
+      </div>
+      <button>Sign in</button>
+      <div class="sign-up">
+        Don't have an account?
+        <a href="/register">Sign up</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+code {
+  display: inline;
+  font-family: monospace;
+  background-color: #1e1f21; /*#a9d9f9;*/
+  padding: 8px;
+  color: #a9d9f9;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  line-height: 1.5;
+}

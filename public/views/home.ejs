@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= global.web_settings.head.title %></title>
+  <link rel="shortcut icon" type="image/png" href="<%= global.web_settings.head.favicon %>">
+  <meta name="description" content="<%= global.web_settings.head.description %>">
+  <meta name="author" content="<%= global.web_settings.head.author %>">
+  <meta name="keywords" content="<%= global.web_settings.head.keywords %>">
+  <meta property="og:site_name" content="<%= global.web_settings.head.site_name %>">
+  <meta property="og:title" content="<%= global.web_settings.head.title %>">
+  <meta property="og:url" content="<%= global.web_settings.head.domain %>">
+  <meta property="og:image" content="<%= global.web_settings.head.image %>">
+  <meta property="og:image:type" content="<%= global.web_settings.head.image_type %>">
+  <meta property="og:image:width" content="<%= global.web_settings.head.image_width %>">
+  <meta property="og:image:height" content="<%= global.web_settings.head.image_height %>">
+  <meta property="og:image:alt" content="<%= global.web_settings.head.image_alt %>">
+  <meta property="og:description" content="<%= global.web_settings.head.description %>">
+  <link rel="stylesheet" href="../assets/css/home.css" />
+
+  <!-- Icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <main>
+    <!-- Header Start -->
+    <header>
+      <nav class="nav container">
+        <a href="/"><h2 class="nav_logo" style="color: white;"><%= global.web_settings.body.header.firstname %>&nbsp;<font style="color: cyan;"><%= global.web_settings.body.header.lastname %></font></h2></a>
+
+        <ul class="menu_items">
+          <i id="menu_toggle" class="fa fa-times"></i>
+          <li><a href="#" class="nav_link">Home</a></li>
+          <li><a href="#about" class="nav_link">About</a></li>
+          <li><a href="#service" class="nav_link">Service</a></li>
+          <li><a href="#pricing" class="nav_link">Pricing</a></li>
+          <a href="/login">Login</a>
+          <a href="/register">Register</a>
+        </ul>
+        <i id="menu_toggle" class="fa fa-bars"></i>
+      </nav>
+    </header>
+    <!-- Header End -->
+
+    <!-- Hero Start -->
+    <section class="hero">
+      <div class="row container">
+        <div class="column">
+          <h2>Bingung mencari Restfull API Gratis?</h2>
+          <p>
+            Tenang, kami menyediakan website Restfull API untuk anda.
+          </p>
+          <div class="buttons">
+            <a href="#pricing"><button class="btn">Get Started</button></a>
+          </div>
+        </div>
+        <div class="column">
+          <img src="../assets/img/backgrounds/hero.png" alt="heroImg" class="hero_img" />
+        </div>
+      </div>
+    </section>
+    <!-- Hero End-->
+  </main>
+  <!-- ======= About Us Section ======= -->
+  <section id="about" class="about">
+    <div class="container" data-aos="fade-up" data-aos-duration="2000">
+      <div class="section-title">
+        <h2 id="about-heading">About</h2>
+      </div>
+      <div class="row content">
+        <div class="col-lg-6">
+          <p>
+            <%= global.web_settings.body.header.firstname %> <%= global.web_settings.body.header.lastname %> adalah website Restfull API untuk WhatsApp bot atau lain-lain, website Restfull API ini Gratis untuk kebutuhan bot, data kamu dalam Restfull API juga tersimpan ke dalam Database.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- End About Us Section -->
+  <!-- Services -->
+  <section id="service" class="service">
+    <h2>Service</h2>
+    <div class="wrapper">
+      <div class="box">
+        <div class="front-face">
+          <div class="icon">
+            <i class="fa fa-key"></i>
+          </div>
+          <span style="text-align: center;">Free API</span>
+        </div>
+        <div class="back-face">
+          <span>Free API</span>
+          <p>
+            Website ini menyediakan Gratis API untuk anda dengan Gratis, dan setiap limit jika habis akan direzet kembali ke limit 25/Days setiap jam 12.00
+          </p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="front-face">
+          <div class="icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <span>Database</span>
+        </div>
+        <div class="back-face">
+          <span>Database</span>
+          <p>
+            Website Restfull API ini menggunakan Database SQL, jadi tenang data Anda akan tersimpan lebih aman di dalam Website ini.
+          </p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="front-face">
+          <div class="icon">
+            <i class="fas fa-robot"></i>
+          </div>
+          <span>Attractive Features</span>
+        </div>
+        <div class="back-face">
+          <span>Attractive Features</span>
+          <p>
+            Website ini cukup membantu kebutuhan WhatsApp bot menjadi lebih baik, dan setiap features akan di bantu oleh Restfull API.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- stop service-->
+  <!-- start pricing -->
+  <div class="container">
+    <h2 id="pricing" style="font-size: 50px; text-align: center; margin-top: 50px;">Pricing</h2>
+    <div class="pricing-container">
+      <div class="card" align="center">
+        <div class="card-body" style="border: 1px solid #333; border-radius: 1em; padding: 30px;">
+          <h5 style="color: #ffffff; font-size: 20px; margin-bottom: 20px;">Free</h5>
+          <h6 style="color: lightgray; font-size: 20px; margin-bottom: 20px; margin-top: 10px;">Rp. 0</h6>
+          <p class="card-text">
+            <p>
+              Benefit:
+            </p>
+            <i> Limit 25/Days</i><br><hr color="#333" />
+            <i> Free Features</i><br><hr color="#333" />
+            <i> Expired ∞</i><br><hr color="#333" />
+          </p>
+          <div style="margin-top: 40px;">
+            <a href="/register" class="btn btn-primary" style="margin-top: 20px;">Get Started
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="card" align="center">
+        <div class="card-body" style="border: 1px solid #333; border-radius: 1em; padding: 30px;">
+          <h5 style="color: #ffffff; font-size: 20px; margin-bottom: 20px;">Premium Plan (1)</h5>
+          <h6 style="color: lightgray; font-size: 18px; margin-bottom: 20px; margin-top: 10px;">Rp. 15.000</h6>
+          <p>
+            Benefit:
+          </p>
+          <i> Limit: 1000/Days</i><br><hr color="#333" />
+          <i> Custom API Key</i><br><hr color="#333" />
+          <i> Premium Features</i><br><hr color="#333" />
+          <i> Expired 1 Months</i><br><hr color="#333" />
+        </p>
+        <div style="margin-top: 40px;">
+          <a href="<%= global.web_settings.pricing.plan1 %>" class="btn btn-primary" style="margin-top: 10px;">Order Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="card" align="center">
+      <div class="card-body" style="border: 1px solid #333; border-radius: 1em; padding: 30px;">
+        <h5 style="color: #ffffff; font-size: 20px; margin-bottom: 20px;">Premium Plan (2)</h5>
+        <h6 style="color: lightgray; font-size: 18px; margin-bottom: 20px; margin-top: 10px;">Rp. 30.000</h6>
+        <p>
+          Benefit:
+        </p>
+        <i> Limit: 10000/Days</i><br><hr color="#333" />
+        <i> Custom API Key</i><br><hr color="#333" />
+        <i> Premium Features</i><br><hr color="#333" />
+        <i> Expired 3 Months</i><br><hr color="#333" />
+      </p>
+      <div style="margin-top: 40px;">
+        <a href="<%= global.web_settings.pricing.plan2 %>" class="btn btn-primary" style="margin-top: 10px;">Order Now</a>
+      </div>
+    </div>
+  </div>
+  <div class="card" align="center">
+    <div class="card-body" style="border: 1px solid #333; border-radius: 1em; padding: 30px;">
+      <h5 style="color: #ffffff; font-size: 20px; margin-bottom: 20px;">Premium Plan(3)</h5>
+      <h6 style="color: lightgray; font-size: 18px; margin-bottom: 20px; margin-top: 10px;">Rp. 60.000</h6>
+      <p>
+        Benefit:
+      </p>
+      <i> Limit 30000/Days</i><br><hr color="#333" />
+      <i> Custom API Key</i><br><hr color="#333" />
+      <i> Premium Features</i><br><hr color="#333" />
+      <i> Free Plugins Dann-MD</i><br><hr color="#333" />
+      <i> Expired 6 Months</i><br><hr color="#333" />
+    </p>
+    <div style="margin-top: 40px;">
+      <a href="<%= global.web_settings.pricing.plan3 %>" class="btn btn-primary" style="margin-top: 10px;">Order Now</a>
+    </div>
+  </div>
+</div>
+<div class="card" align="center">
+  <div class="card-body" style="border: 1px solid #333; border-radius: 1em; padding: 30px;">
+    <h5 style="color: #ffffff; font-size: 20px; margin-bottom: 20px;">Premium Plan (4)</h5>
+    <h6 style="color: lightgray; font-size: 18px; margin-bottom: 20px; margin-top: 10px;">Rp. 90.000</h6>
+    <p>
+      Benefit:
+    </p>
+    <i> Limit 60000/Days</i><br><hr color="#333" />
+    <i> Custom API Key</i><br><hr color="#333" />
+    <i> VIP Features</i><br><hr color="#333" />
+    <i> Free Script Dann-MD</i><br><hr color="#333" />
+    <i> Expired 9 Months</i><br><hr color="#333" />
+  </p>
+  <div style="margin-top: 40px;">
+    <a href="<%= global.web_settings.pricing.plan4 %>" class="btn btn-primary" style="margin-top: 10px;">Order Now</a>
+  </div>
+</div>
+</div>
+<div class="card" align="center">
+<div class="card-body" style="border: 1px solid #333; border-radius: 1em; padding: 30px;">
+<h5 style="color: #ffffff; font-size: 20px; margin-bottom: 20px;">Premium Plan (5)</h5>
+<h6 style="color: lightgray; font-size: 18px; margin-bottom: 20px; margin-top: 10px;">Rp. 120.000</h6>
+<p>
+Benefit:
+</p>
+<i> Limit 100000</i><br><hr color="#333" />
+<i> Custom API Key</i><br><hr color="#333" />
+<i> Super VIP Features</i><br><hr color="#333" />
+<i> Free Script Dann-MD</i><br><hr color="#333" />
+<i> Expired 1 Years</i><br><hr color="#333" />
+</p>
+<div style="margin-top: 40px;">
+<a href="<%= global.web_settings.pricing.plan5 %>" class="btn btn-primary" style="margin-top: 10px;">Order Now</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- stop pricing -->
+<!-- Footer -->
+<footer class="container bg-dark text-white text-center py-5" align="center" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+<p style="margin-bottom: 10px">
+Copyright &copy; 2023 <a href="https://dannteam.com"><%= global.web_settings.body.footer.name %></a>. All rights reserved.
+</p>
+</footer>
+<script src="../assets/js/home.js"></script>
+</body>
+</html>

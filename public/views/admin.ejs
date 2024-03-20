@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Panel - DannTeam</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="/assets/css/admin.css">
+</head>
+<body>
+  <div class="container">
+    <div class="navbar">
+      <h1>Admin Panel</h1>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="#broadcast">Broadcast</a></li>
+        <li><a href="#add-users">Add Users</a></li>
+        <li><a href="#update-data-users">Update Users</a></li>
+      </ul>
+      <i class="fas fa-sun dark-mode-icon" onclick="toggleDarkMode()"></i>
+    </div>
+
+    <div class="form-container">
+      <h2 id="broadcast"><i class="fa fa-envelope"></i>Send Broadcast</h2>
+      <form action="/admin/broadcast" method="POST">
+        <input type="text" name="subject" placeholder="Subject" required>
+        <textarea name="message" placeholder="Message" required></textarea>
+      </select>
+      <button type="submit"><i class="fa fa-paper-plane"></i>Send</button>
+    </form>
+  </div>
+
+  <div class="form-container">
+    <h2 id="add-users"><i class="fa fa-user-plus"></i>Add Users</h2>
+    <form action="/admin/add-user" method="POST">
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <input type="text" name="user_keys" placeholder="API key" required>
+      <input type="number" name="limit" placeholder="Limit" required>
+      <select name="user_type">
+        <option value="Free">Free</option>
+        <option value="Premium">Premium</option>
+      </select>
+      <button type="submit"><i class="fa fa-plus"></i>Add User</button>
+    </form>
+  </div>
+
+  <h2 id="update-data-users"><i class="fa fa-cogs"> Update Data</i></h2>
+  <br />
+  <i class="fa fa-search">&nbsp;<input type="search" id="searchInput" placeholder="Search users..."></i>
+  <table id="userTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th><i class="fa fa-user">&nbsp;Username</i></th>
+        <th><i class="fa fa-envelope">&nbsp;Email</i></th>
+        <th><i class="fa fa-lock">&nbsp;Password</i></th>
+        <th><i class="fa fa-user-tie">&nbsp;User&nbsp;Type</i></th>
+        <th><i class="fa fa-key">&nbsp;API&nbsp;Key</i></th>
+        <th><i class="fa fa-bolt">&nbsp;Limit</i></th>
+        <th><i class="fa fa-pen-to-square">&nbsp;Action</i></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% users.forEach(user => {
+        %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.username %></td>
+          <td><%= user.email %></td>
+          <td><%= user.password %></td>
+          <td><%= user.user_type %></td>
+          <td><%= user.user_keys %></td>
+          <td><%= user.limit %></td>
+          <td>
+            <form action="/admin/update-data" method="POST">
+              <input type="hidden" name="userId" value="<%= user.id %>">
+              <input type="text" name="username" placeholder="New username">
+              <input type="email" name="email" placeholder="New email">
+              <input type="password" name="password" placeholder="New password">
+              <input type="text" name="user_keys" placeholder="New keys">
+              <input type="number" name="limit" placeholder="Limit">
+              <div style="margin-top: 5px;">
+                <button type="submit" class="action-button"><i class="fas fa-edit"></i> Update</button>
+              </div>
+            </form>
+            <form action="/admin/delete-data" method="POST">
+              <input type="hidden" name="userId" value="<%= user.id %>">
+              <div style="margin-top: 5px;">
+                <button type="submit" class="action-button"><i class="fas fa-trash-alt"></i> Delete</button>
+              </div>
+            </form>
+            <form action="/admin/update-premium" method="post">
+              <input type="hidden" name="userId" value="<%= user.id %>">
+              <input type="hidden" name="isPremium" value="<%= user.user_type === 'Premium' ? 'Free': 'Premium' %>">
+              <div style="margin-top: 5px;">
+                <button type="submit" class="action-button">
+                  <% if (user.user_type === 'Premium') {
+                    %>
+                    <i class="fas fa-star"></i> Remove Premium
+                    <%
+                  } else {
+                    %>
+                    <i class="fas fa-star"></i> Make Premium
+                    <%
+                  } %>
+                </button>
+              </div>
+            </form>
+          </td>
+        </tr>
+        <%
+      }) %>
+    </tbody>
+  </table>
+
+  <div class="footer">
+    <i class="fas fa-code"></i> Copyright &copy; 2023 <a href="https://dannteam.com">DannTeam</a>. All right reserved.
+  </div>
+</div>
+
+<script src="/assets/js/admin.js"></script>
+</body>
+</html>
